@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ads Manager Dashboard — Lưu Thị Quỳnh Hương</title>
+<meta name="description" content="An internal tool built on the official Google Ads API: campaign monitoring, spend guardrails, search-term hygiene, tracking management, and a full audit log — used on one advertising account.">
+<style>
+  :root {
+    --ink: #1a2233;
+    --muted: #5a6478;
+    --accent: #2456d6;
+    --accent-soft: #eef2fd;
+    --line: #e4e8f0;
+    --bg: #ffffff;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: var(--ink);
+    background: var(--bg);
+    line-height: 1.6;
+  }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+  nav { padding: 20px 0; border-bottom: 1px solid var(--line); font-size: 15px; }
+  nav a { color: var(--muted); text-decoration: none; }
+  nav a:hover { color: var(--ink); }
+  header { padding: 72px 0 56px; border-bottom: 1px solid var(--line); }
+  .eyebrow {
+    display: inline-block;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: var(--accent-soft);
+    padding: 6px 12px;
+    border-radius: 999px;
+    margin-bottom: 20px;
+  }
+  h1 { font-size: clamp(30px, 4.5vw, 40px); line-height: 1.15; letter-spacing: -0.02em; }
+  .lede { font-size: 19px; color: var(--muted); max-width: 620px; margin-top: 16px; }
+  section { padding: 56px 0; border-bottom: 1px solid var(--line); }
+  h2 { font-size: 22px; letter-spacing: -0.01em; margin-bottom: 24px; }
+  .modules { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+  .card {
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 24px;
+  }
+  .card h3 { font-size: 16px; margin-bottom: 8px; }
+  .card p { font-size: 15px; color: var(--muted); }
+  .shot { margin-bottom: 40px; }
+  .shot:last-child { margin-bottom: 0; }
+  .shot h3 { font-size: 17px; margin-bottom: 6px; }
+  .shot p { font-size: 15px; color: var(--muted); margin-bottom: 14px; max-width: 640px; }
+  .shot .frame {
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .shot img { display: block; width: 100%; }
+  .api p, .scope p { color: var(--muted); max-width: 640px; }
+  .api p + p, .scope p + p { margin-top: 14px; }
+  .api ul { margin: 16px 0 0 20px; color: var(--muted); }
+  .api li { margin-bottom: 8px; }
+  .api code {
+    background: var(--accent-soft);
+    padding: 2px 7px;
+    border-radius: 6px;
+    font-size: 14px;
+  }
+  footer { padding: 32px 0 48px; font-size: 14px; color: var(--muted); }
+  footer a { color: inherit; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap"><a href="index.html">&larr; Back to home</a></div>
+</nav>
+
+<header>
+  <div class="wrap">
+    <span class="eyebrow">Internal Tool</span>
+    <h1>Ads Manager Dashboard</h1>
+    <p class="lede">A self-built dashboard that runs the day-to-day management of my Google Ads account — monitoring, automation, and tracking hygiene in one place, powered by the official Google Ads API.</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <h2>What it does</h2>
+    <div class="modules">
+      <div class="card">
+        <h3>Campaign Monitoring</h3>
+        <p>A single overview of spend, clicks, conversions, and return on ad spend across every campaign, with daily trends for the last 30 days.</p>
+      </div>
+      <div class="card">
+        <h3>Spend Guardrails</h3>
+        <p>Automated rules that watch the account on a schedule — pausing campaigns that burn budget without converting, and flagging abnormal cost-per-conversion movement.</p>
+      </div>
+      <div class="card">
+        <h3>Search-Term Hygiene</h3>
+        <p>Pulls the search terms report, flags queries that spend without converting, and adds them as negative keywords directly from the tool.</p>
+      </div>
+      <div class="card">
+        <h3>Tracking Management</h3>
+        <p>Manages Final URL Suffixes and tracking parameters across campaigns, including scheduled rotation of tracking values for clean attribution.</p>
+      </div>
+      <div class="card">
+        <h3>Audit Change Log</h3>
+        <p>Every automated or manual action the tool takes is recorded — what changed, on which campaign, when, and why — so nothing in the account is ever a mystery.</p>
+      </div>
+      <div class="card">
+        <h3>Campaign Controls</h3>
+        <p>Pause and enable campaigns from the dashboard, with each action validated and written back to the account through the API.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <h2>Inside the tool</h2>
+
+    <div class="shot">
+      <h3>Overview</h3>
+      <p>The landing view: headline KPIs for the account, daily spend and conversion trends, and per-campaign performance at a glance.</p>
+      <div class="frame"><img src="assets/dashboard-overview.png" alt="Dashboard overview showing KPI cards, a 30-day spend and conversions chart, and a campaign performance table" loading="lazy"></div>
+    </div>
+
+    <div class="shot">
+      <h3>Campaigns</h3>
+      <p>Per-campaign budgets, performance, and status controls. Pausing or enabling a campaign takes effect in the account through the API and is written to the change log.</p>
+      <div class="frame"><img src="assets/dashboard-campaigns.png" alt="Campaigns page showing per-campaign budgets, performance metrics, and pause or enable controls" loading="lazy"></div>
+    </div>
+
+    <div class="shot">
+      <h3>Guardrails</h3>
+      <p>Automation rules with configurable thresholds. Enabled rules run against the account on a schedule and act through the API.</p>
+      <div class="frame"><img src="assets/dashboard-guardrails.png" alt="Guardrails page showing automation rules with thresholds and enable toggles" loading="lazy"></div>
+    </div>
+
+    <div class="shot">
+      <h3>Search Terms</h3>
+      <p>The search terms report with wasteful queries flagged. Adding a negative keyword is a single action, and it is written to the account immediately.</p>
+      <div class="frame"><img src="assets/dashboard-search-terms.png" alt="Search terms report with flagged wasteful queries and add-as-negative actions" loading="lazy"></div>
+    </div>
+
+    <div class="shot">
+      <h3>Tracking</h3>
+      <p>Final URL Suffix management per campaign, with scheduled rotation of tracking values and a history of every rotation applied.</p>
+      <div class="frame"><img src="assets/dashboard-tracking.png" alt="Tracking page showing per-campaign final URL suffixes and rotation schedule" loading="lazy"></div>
+    </div>
+
+    <div class="shot">
+      <h3>Change Log</h3>
+      <p>The audit trail: every action taken by the tool — guardrail triggers, suffix rotations, status changes — with timestamps and details.</p>
+      <div class="frame"><img src="assets/dashboard-changelog.png" alt="Change log showing a reverse-chronological audit trail of automated actions" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<section class="api">
+  <div class="wrap">
+    <h2>How it uses the Google Ads API</h2>
+    <p>The dashboard talks to a single Google Ads account — my own — using the official Google Ads API with OAuth 2.0 credentials. It does not access any other account, and it is not offered to anyone else.</p>
+    <ul>
+      <li><code>GoogleAdsService</code> — reporting queries for campaign performance and search term reports.</li>
+      <li><code>CampaignService</code> — reading and updating campaign settings, including status and Final URL Suffixes.</li>
+      <li><code>CampaignBudgetService</code> — reading budget configuration for pacing checks and guardrails.</li>
+      <li><code>AdGroupCriterionService</code> — adding negative keywords identified from the search terms report.</li>
+    </ul>
+    <p style="margin-top:16px;">Request volume is modest — scheduled report queries a few times per hour and occasional mutations when a guardrail triggers or a setting changes.</p>
+  </div>
+</section>
+
+<section class="scope">
+  <div class="wrap">
+    <h2>Scope and data handling</h2>
+    <p>This is an internal tool, operated by me and used only on my own advertising account. Data retrieved through the API is stored locally, never shared with third parties, and never used for any purpose other than managing that account. Details are in the <a href="privacy.html" style="color:var(--accent);">privacy policy</a>.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">© 2026 Lưu Thị Quỳnh Hương · Performance Marketing · <a href="index.html">Home</a> · <a href="privacy.html">Privacy Policy</a></div>
+</footer>
+
+</body>
+</html>

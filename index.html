@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Lưu Thị Quỳnh Hương — Performance Marketing</title>
-<meta name="description" content="Independent performance marketer running Google Ads campaigns in the e-commerce space — campaign management, optimization, and conversion tracking.">
+<meta name="description" content="Independent performance marketer running Google Ads campaigns in the e-commerce space — campaign management, optimization, and conversion tracking, powered by a custom internal Google Ads API tool.">
 <style>
   :root {
     --ink: #1a2233;
@@ -47,6 +47,23 @@
   }
   .card h3 { font-size: 16px; margin-bottom: 8px; }
   .card p { font-size: 15px; color: var(--muted); }
+  .tool p { color: var(--muted); max-width: 640px; }
+  .tool p + p { margin-top: 14px; }
+  .tool .shot {
+    margin: 28px 0;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .tool .shot img { display: block; width: 100%; }
+  .tool .more {
+    display: inline-block;
+    margin-top: 20px;
+    font-weight: 600;
+    color: var(--accent);
+    text-decoration: none;
+  }
+  .tool .more:hover { text-decoration: underline; }
   .about p { color: var(--muted); max-width: 640px; }
   .about p + p { margin-top: 14px; }
   .contact a {
@@ -61,6 +78,7 @@
   .contact a:hover { opacity: 0.9; }
   .contact .note { margin-top: 14px; font-size: 15px; color: var(--muted); }
   footer { padding: 32px 0 48px; font-size: 14px; color: var(--muted); }
+  footer a { color: inherit; }
 </style>
 </head>
 <body>
@@ -93,6 +111,18 @@
   </div>
 </section>
 
+<section class="tool">
+  <div class="wrap">
+    <h2>The tool behind it: Ads Manager Dashboard</h2>
+    <p>Day-to-day account work runs on a custom internal dashboard I built on top of the official Google Ads API. It gives me one place to monitor campaign performance, enforce spend guardrails, clean up search terms, and manage tracking parameters across every campaign in the account.</p>
+    <div class="shot">
+      <img src="assets/dashboard-overview.png" alt="Ads Manager Dashboard — overview of campaign performance, daily spend, and conversions" loading="lazy">
+    </div>
+    <p>The dashboard is used only by me, on my own advertising account. It keeps routine maintenance — budget checks, negative keyword hygiene, final URL suffix rotation — consistent and auditable, with a change log of every automated action.</p>
+    <a class="more" href="tool.html">See how the tool works &rarr;</a>
+  </div>
+</section>
+
 <section class="about">
   <div class="wrap">
     <h2>About</h2>
@@ -110,7 +140,7 @@
 </section>
 
 <footer>
-  <div class="wrap">© 2026 Lưu Thị Quỳnh Hương · Performance Marketing · <a href="privacy.html" style="color:inherit;">Privacy Policy</a></div>
+  <div class="wrap">© 2026 Lưu Thị Quỳnh Hương · Performance Marketing · <a href="tool.html">Ads Manager Dashboard</a> · <a href="privacy.html">Privacy Policy</a></div>
 </footer>
 
 </body>

@@ -9,6 +9,8 @@
   h1 { font-size: 30px; letter-spacing: -0.02em; }
   h2 { font-size: 19px; margin-top: 32px; }
   p, li { color: #333b4d; }
+  ul { margin: 12px 0 0 22px; }
+  li { margin-bottom: 6px; }
   a { color: #2456d6; }
   .updated { color: #5a6478; font-size: 14px; }
   footer { margin-top: 48px; padding-top: 20px; border-top: 1px solid #e4e8f0; font-size: 14px; color: #5a6478; }
@@ -17,19 +19,26 @@
 <body>
 
 <h1>Privacy Policy</h1>
-<p class="updated">Last updated: 28 August 2026</p>
+<p class="updated">Last updated: 1 September 2026</p>
 
-<p>This privacy policy applies to the Google Ads management tool operated by Lưu Thị Quỳnh Hương
-("we", "us"). The tool is used internally to manage our own Google Ads advertising account.</p>
+<p>This privacy policy applies to the Ads Manager Dashboard, a Google Ads management tool operated by
+Lưu Thị Quỳnh Hương ("we", "us"). The tool is used internally to manage our own Google Ads
+advertising account.</p>
 
 <h2>Information we access</h2>
-<p>The tool uses the official Google Ads API to read and update settings within our own Google Ads
-account — specifically, campaign settings such as the Final URL Suffix. It accesses this data using
-OAuth 2.0 credentials belonging to our own Google account.</p>
+<p>The tool uses the official Google Ads API to read and update data within our own Google Ads
+account, accessed using OAuth 2.0 credentials belonging to our own Google account. Specifically, it:</p>
+<ul>
+  <li>reads campaign performance metrics (impressions, clicks, cost, conversions) and search term
+  reports for our own campaigns;</li>
+  <li>reads and updates campaign settings such as status, budgets, and Final URL Suffixes;</li>
+  <li>adds negative keywords to our own ad groups based on search term analysis.</li>
+</ul>
 
 <h2>How we use information</h2>
-<p>Information accessed through the Google Ads API is used solely to update campaign settings in our
-own account. We do not use it for any other purpose.</p>
+<p>Information accessed through the Google Ads API is used solely to monitor, report on, and manage
+our own advertising account — including performance dashboards, automated spend guardrails, search
+term hygiene, and tracking parameter management. We do not use it for any other purpose.</p>
 
 <h2>Data sharing</h2>
 <p>We do not sell, rent, or share any data accessed through the Google Ads API with any third party.
